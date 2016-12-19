@@ -33,6 +33,7 @@ gem 'coderay'
 gem 'devise'
 gem 'omniauth'
 gem 'breadcrumbs_on_rails'
+gem 'unicorn'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
