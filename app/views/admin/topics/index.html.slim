@@ -1,0 +1,61 @@
+div[style="margin-left: 120px;position: relative;"]
+  .admin-index-left
+    h2 作成記事一覧
+    =button_to '記事作成', {action: "new"},{method: "get"}
+    - @topics.each_with_index do|t,i|
+      =t.id
+      ul.list-none
+        li.writer-topic-list
+          .card-img = image_tag t.thumb_url,class: "writer-topic-img"
+          .card-right
+            .row-three-item = t.title
+            i class="fa fa-folder-open-o" aria-hidden="true"
+              = @category_name[i]
+            i class="fa fa-hashtag" aria-hidden="true"
+              = @need_name[i]
+          .row-three-item = button_to "編集" ,{action: "edit",id: t.id},{method: "get"}
+
+  .admin-index-right
+    strong = @wait_products.count.to_s + "件の承認待ちがあります。"
+    - @wait_topics.each do |p|
+      p
+      span 記事id：
+      =p
+
+css:
+  .admin-index-left{
+    width: 50%;
+    display: inline-block;
+  }
+  .admin-index-right{
+    width: 45%;
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+  }
+  .writer-topic-list{
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+  }
+  .writer-topic-img{
+    height: 100px;
+    width: 100px;
+  }
+  .row-three-item{
+    display: inline-block;
+  }
+  .card-img{
+    display: inline-block;
+    height: 100%;
+    width: 20%;
+  }
+  .list-none{
+    list-style: none;
+  }
+  .card-right{
+    display: inline-block;
+    margin: 0px 10px;
+    position: relative;
+    top: -14px;
+    width:69%;
+  }

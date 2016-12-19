@@ -1,0 +1,122 @@
+.main
+  .topic-area-title
+    div.top-title-style Relation
+    span.top-subtitle-style 関連記事
+
+  .topic-area
+    - @same_category_topics.each_with_index do |t,i|
+      - unless i.even?
+        = link_to topic_show_path(t.id) do
+          .card-margin
+           .list
+             = image_tag t.thumb_url ,class: "top-card"
+           .list[style="float: right"]
+             .label-style
+               .label-text = @need_name
+             h4.topic-title =t.title
+             div[style="display: table-cell;vertical-align: middle;text-align: center;color: #E3E3E3;width: 35.42px;"]
+               / i[class="fa fa-hand-o-left" aria-hidden="true" style="font-size: 32px;color: #59A2F5;"]
+             span.check-text このオススメをチェック
+        .top-card-border
+      - else
+        = link_to topic_show_path(t.id) do
+          .card-margin
+            .list
+              .label-style
+                .label-text = @need_name
+              h4.topic-title =t.title
+              / div[style="text-align: right;"]
+                / i[class="fa fa-hand-o-right" aria-hidden="true" style="font-size: 32px;color: #59A2F5;"]
+              span.check-text このオススメをチェック
+            .list[style="float: right"]
+              = image_tag t.thumb_url, class: "top-card"
+        .top-card-border
+    .buttom-div
+
+css:
+  .main{
+    margin:0 10px;
+  }
+  .topic-area-title{
+    border-bottom: 2px solid #59A2F5;
+    overflow: hidden;
+  }
+  .top-title-style{
+    display: inline-block;
+    vertical-align: middle;
+    float: left;
+    font-size: 24px;
+    font-weight: 600;
+  }
+  .top-subtitle-style{
+    padding-left: 8px;
+    top: 8px;
+    position: relative;
+    color: #59A2F5;
+    font-size: 12px;
+  }
+  .top-card{
+    width: 100%;
+    height: 100%;
+  }
+  .list{
+    display: inline-block;
+    width: 46%;
+    background-color: white;
+    height: 180px;
+    position: relative;
+  }
+  .check-text{
+    color: #59A2F5;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    font-size: 14px;
+  }
+  .topic-title{
+    font-size: 14px;
+    color: black;
+  }
+  .label-style{
+    background-color: #59A2F5;
+    width: 100%;
+    height: 30px;
+    color: white;
+    text-align: center;
+  }
+  .label-text{
+    position: relative;
+    top: 4px;
+  }
+  .card-margin{
+    margin-top: 20px;
+  }
+  .top-card-border{
+    border-bottom: 1px solid #59A2F5;
+    margin-top: 10px;
+  }
+  .label-text{
+    position: relative;
+    top: 4px;
+  }
+  .recommend-list{
+    display: inline-block;
+    width: 45%;
+    margin: 0 0 0 12px;
+  }
+  .recommend-text{
+    position: relative;
+    top: -30px;
+  }
+  .check-text{
+    color: #59A2F5;
+  }
+  .recommend-title{
+    display: block;
+    font-size: 14px;
+    color: black;
+  }
+  .recommend-img{
+    max-width: 140px;
+    / max-height: 140px;
+  }

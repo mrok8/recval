@@ -1,0 +1,55 @@
+div[style="margin-left: 120px;"]
+  h2 カテゴリー管理
+  div
+    = form_for(@category,url: admin_categories_create_path,method: "post") do |f|
+      = f.label :name
+      = f.text_field :name
+      = f.label :thumb_url
+      = f.text_field :thumb_url
+      = link_to "フリー画像","http://gahag.net/",:target => "_blank"
+      = f.label :parent_id
+      = f.collection_select :parent_id, Category.where(parent_id: nil), :id, :name, :prompt => "選択してください"
+      = f.submit "追加"
+
+  div[style="margin: 10px"]
+    - @categories.each do |c|
+      .category-card
+        .img-style
+          = image_tag c.thumb_url, class: "category-card-img"
+          .black-window
+        span.category-card-text = c.name
+
+css:
+  .category-card{
+    display: inline-block;
+    width: 16%;
+    position: relative;
+    margin: 10px 10px 10px 0px;
+
+  }
+  .category-card-img{
+    width: 100%;
+    height: 125px;
+  }
+  .category-card-text{
+    position: absolute;
+    top: 40%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+    color: white;
+  }
+  .black-window{
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    z-index: 2;
+    opacity: 0.3;
+    background-color: black;
+    width: 100%;
+    height: 125px;
+  }
+  .img-style{
+    position:relative;
+  }

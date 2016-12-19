@@ -1,0 +1,72 @@
+.main{
+    width:100%;
+  }
+.first-view-image{
+  width: 100%;
+  /*margin: 0 auto;*/
+}
+.top-image{
+  width: 50%;
+  margin: 4px 0;
+  display: inline-block;
+}
+.top-image-right{
+  width: 40%;
+  height: 390px;
+  display: inline-block;;
+}
+.top-image2 {
+  height: 50%;
+  margin: 4px 0px 0px 4px;
+}
+.top-image3 {
+  height: 50%;
+  margin: 0px 0px 4px 4px;
+}
+.topic-area{
+  width: 80%;
+  margin:0 auto;
+}
+ul{
+  width: 100%;
+  margin: 12px 0px 0px -38px;
+}
+.topic-card {
+  display: block;
+  height: 50%;
+  margin: 4px 0px 0px 4px;
+}
+.top-card{
+  display: inline-block;
+  width: 100%;
+}
+.list{
+  width: 15%;
+  float: left;
+  display: block;
+  /*border: 1px solid gray;*/
+  margin: 0 0 15px 12px;
+  background-color: white;
+}
+.card-name{
+  display: block;
+  text-align: left;
+  margin: 0px 8px;
+}
+.card-price {
+  display: block;
+  text-align: right;
+  padding: 0px 8px;
+  color: #999;
+}
+.topic-area-title{
+  border-bottom: 1px solid #e7e7e7;
+  overflow: hidden;
+}
+.top-title-style{
+  display: inline-block;
+  vertical-align: middle;
+  float: left;
+  font-size: 24px;
+  font-weight: 600;
+}

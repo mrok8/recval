@@ -1,0 +1,36 @@
+div[style="margin: 0px 60px"]
+  = form_for(@product,url: recommender_products_create_path,method: "post") do |f|
+    li.form-list.inline-block-2.list-none.max-width
+      span ニーズ
+      = f.collection_select :need_id, Need.all, :id, :name, :prompt => "選択してください"
+    li.form-list.inline-block-2.list-none.max-width
+      span カテゴリー
+      = f.collection_select :category_id, Category.all, :id, :name, :prompt => "選択してください"
+    li.list-none.max-width
+      = f.text_field :title,class: "max-width" ,placeholder: "商品名を記入してください"
+    li.list-none.max-width
+      = f.text_field :image_url,class: "max-width" ,placeholder: "amazonの画像urlを記入してください"
+    li.list-none.max-width
+      = f.text_field :site_url,class: "max-width" ,placeholder: "amazonの商品ページのurlを記入してください"
+    li.list-none.max-width
+      = f.text_field :recommend_point_1,class: "max-width" ,placeholder: "オススメポイント1つ目を記入してください"
+    li.list-none.max-width
+      = f.text_field :recommend_point_2,class: "max-width" ,placeholder: "オススメポイント2つ目を記入してください"
+    li.list-none.max-width
+      = f.text_field :recommend_point_3,class: "max-width" ,placeholder: "オススメポイント3つ目を記入してください"
+    li.list-none.max-width
+      = f.text_area :text,class: "max-width" ,placeholder: "体験談などを記入してください"
+    li.list-none.max-width
+      = f.text_area :information,class: "max-width" ,placeholder: "基本情報を記入してください"
+    li.list-none.max-width
+      = f.text_area :quotation,class: "max-width" ,placeholder: "レビューを一つ記入してください"
+    li.list-none.max-width
+    = f.submit "投稿"
+
+css:
+  .list-none{
+    list-style: none;
+  }
+  .max-width{
+    width: 100%;
+  }

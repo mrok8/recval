@@ -1,0 +1,172 @@
+.main
+  div[style="width: 100%;"]
+    div[style="display: inline-block;width: 46%;margin: 0px 20px;"]
+      =image_tag "http://media.gettyimages.com/photos/young-couple-leaning-at-kitchen-counter-and-looking-at-documents-picture-id544489363?k=6&m=544489363&s=170667a&w=0&h=kuR6FoQYxjuThUEBQ7O4UhncKX-gWkWFOz7slDZxeJM=",style: "width: 100%;"
+    div[style="display: inline-block;width: 47%;margin: 0px 20px;"]
+      h1.top-img-text RecValとは・・・</br>
+      span「recommend value」から名付けられました。普段友達などに何か商品のおすすめを聞かれて教えることがありますよね？そのおすすめに価値をつけませんか？このサイトはそんな皆様のおすすめに価値をつけるために作られました。
+
+  .topic-area-title
+    span.top-title-style おすすめ特集一覧
+
+  section.topic-area
+    ul[style="list-style: none;"]
+      - @new_topics.each_with_index do |t,i|
+        = link_to topic_show_path(t.id) do
+          li.list
+            = image_tag t.thumb_url ,class: "top-card"
+            span.card-name = t.title
+            i class="fa fa-folder-open-o" aria-hidden="true"
+              = @category_name[i]
+            i class="fa fa-hashtag" aria-hidden="true"
+              = @need_name[i]
+
+      / li.list
+      /   = image_tag 'http://scontent.cdninstagram.com/t51.2885-15/e35/s320x320/15056750_1738302516494801_9095615996957294592_n.jpg', class: "top-card"
+      /   span.card-name name
+      /   span.card-price price
+
+  .topic-area-title
+    span.top-title-style ニーズ一覧
+
+  div[style="padding-left: 70px;"]
+    - @recommend_needs.each do |n|
+      = link_to need_path(n.id) do
+        .category-card
+          .img-style
+            = image_tag n.thumb_url, class: "category-card-img"
+            .black-window
+          span.category-card-text = n.name
+
+  .topic-area-title
+    span.top-title-style カテゴリー一覧
+
+  div[style="padding-left: 70px;"]
+    - @recommend_categories.each do |c|
+      = link_to category_path(c.id) do
+        .category-card
+          .img-style
+            = image_tag c.thumb_url, class: "category-card-img"
+            .black-window
+          span.category-card-text = c.name
+
+
+
+  /span[style="font-family: serif;float: right; font-size: 60px;width: 50%;height: 100%;"] スニーカー
+  /h1[style="text-align: center;width: 50%;font-family: serif;float: left;"]　レア物
+  /   /=image_tag 'http://fashion-basics.com/wp-content/uploads/2016/04/20150403_522.jpg'
+css:
+  i{
+  color: black;
+  }
+  .main{
+    width:100%;
+  }
+  .first-view-image{
+    width: 80%;
+    margin: 0 auto;
+  }
+  .top-image{
+    width: 100%;
+    margin: 4px 0;
+    display: inline-block;
+  }
+  .top-image-right{
+    width: 40%;
+    height: 390px;
+    display: inline-block;;
+  }
+  .top-image2 {
+    height: 50%;
+    margin: 4px 0px 0px 4px;
+  }
+  .top-image3 {
+    height: 50%;
+    margin: 0px 0px 4px 4px;
+  }
+  .topic-area{
+    width: 80%;
+    margin:0 auto;
+  }
+  ul{
+    width: 100%;
+    margin: 12px 0px 0px -38px;
+  }
+  .topic-card {
+    display: block;
+    height: 50%;
+    margin: 4px 0px 0px 4px;
+  }
+  .top-card{
+    display: inline-block;
+    height: 200px;
+  }
+  .list{
+    width: 23%;
+    display: inline-block;
+    /*border: 1px solid gray;*/
+    margin: 0 0 15px 12px;
+    background-color: white;
+    text-align: center;
+  }
+  .card-name{
+    display: block;
+    text-align: left;
+    margin: 0px 8px;
+    height: 80px;
+    color: black;
+  }
+  .card-price {
+    display: block;
+    text-align: right;
+    padding: 0px 8px;
+    color: #999;
+  }
+  .topic-area-title{
+    border-bottom: 1px solid #e7e7e7;
+    overflow: hidden;
+    margin: 20px;
+  }
+  .top-title-style{
+    display: inline-block;
+    vertical-align: middle;
+    float: left;
+    font-size: 24px;
+    font-weight: 600;
+  }
+  .top-img-text{
+    display: inline-block;
+  }
+  .category-card{
+    display: inline-block;
+    width: 15%;
+    position: relative;
+    margin: 10px 10px 0px 0px;
+
+  }
+  .category-card-img{
+    width: 100%;
+    height: 125px;
+  }
+  .category-card-text{
+    position: absolute;
+    top: 40%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+    color: white;
+  }
+  .black-window{
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    z-index: 2;
+    opacity: 0.3;
+    background-color: black;
+    width: 100%;
+    height: 125px;
+  }
+  .img-style{
+    position:relative;
+  }

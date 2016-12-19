@@ -1,0 +1,48 @@
+div[style="margin-bottom: 40px;"]
+  ul[style="list-style: none;"]
+    = form_for(@topic, url: admin_topics_create_path,method: 'pacth') do |f|
+      div
+        li.form-list.inline-block
+          = f.text_field :title, style: "font-size: 18px;",placeholder: "タイトルを入力してください"
+        li.form-list.inline-block-2
+          span ニーズ
+          = f.collection_select :need_id, Need.all, :id, :name, :prompt => "選択してください"
+      div
+        li.form-list.inline-block
+          = f.text_field :thumb_url,placeholder: "サムネイルの画像urlを入力してください"
+        li.form-list.inline-block-2
+          span カテゴリー
+          = f.collection_select :category_id, Category.all, :id, :name, :prompt => "選択してください"
+      li.form-list
+        = f.text_area :description, class: "description-style",placeholder: "記事の概要を記入してください"
+      li.form-list
+        = f.text_area :text, class: "text-style",placeholder: "記事の内容を入力してください"
+      li.form-list
+        = f.submit "編集完了" , class: "submit-button"
+
+css:
+  .form-list{
+    text-align: center;
+  }
+  textarea{
+    width: 90%;
+    height:500px;
+  }
+  input{
+    width: 87%;
+  }
+  .submit-button{
+    width: 60%;
+    background-color: orange;
+    color: white;
+  }
+  .inline-block{
+    display: inline-block;
+    width: 75%;
+  }
+  .inline-block-2{
+    display: inline-block;
+    width: 25%;
+  }
+
+

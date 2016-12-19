@@ -1,0 +1,175 @@
+.max-width
+  .recommender-edit-left
+    h2 =current_recommender["name"] + "さんオススメ商品"
+    h3 =@product.title
+    div style=("width: 100%")
+      .row-img
+        =image_tag @product.image_url,class: "topic-img"
+      .row-right
+        h4 =current_recommender["name"] + "さんのオススメポイント"
+        ul
+          li =@product.recommend_point_1
+          li =@product.recommend_point_2
+          li =@product.recommend_point_3
+    h4 =current_recommender[:name] + "さんの総評・体験談"
+    div =@product.text
+    .buttom-div
+      .buttom
+        =link_to "商品ページへ",@product.site_url,style: "color: #59A2F5;"
+    blockquote
+      =@product.information.gsub(/\r\n|\r|\n/, '<br />').html_safe
+      br
+      =link_to @product.site_url ,class: "no-decoretion",target: "_blank" do
+        cite.citation-url 出典：#{@product.site_url}
+
+
+  .recommender-edit-right
+    = form_for(@product,url: recommender_products_save_path,method: "post") do |f|
+      li.list-none.max-width
+        = f.text_field :title,class: "max-width" ,placeholder: "商品名を記入してください"
+      li.list-none.max-width
+        = f.text_field :image_url,class: "max-width" ,placeholder: "amazonの画像urlを記入してください"
+      li.list-none.max-width
+        = f.text_field :site_url,class: "max-width" ,placeholder: "amazonの商品ページのurlを記入してください"
+      li.list-none.max-width
+        = f.text_field :recommend_point_1,class: "max-width" ,placeholder: "オススメポイント1つ目を記入してください"
+      li.list-none.max-width
+        = f.text_field :recommend_point_2,class: "max-width" ,placeholder: "オススメポイント2つ目を記入してください"
+      li.list-none.max-width
+        = f.text_field :recommend_point_3,class: "max-width" ,placeholder: "オススメポイント3つ目を記入してください"
+      li.list-none.max-width
+        = f.text_area :text,class: "max-width rec-edit-text-area" ,placeholder: "体験談などを記入してください"
+      li.list-none.max-width
+        = f.text_area :information,class: "max-width rec-edit-text-area" ,placeholder: "基本情報を記入してください"
+      li.list-none.max-width
+        = f.text_area :quotation,class: "max-width rec-edit-text-area" ,placeholder: "レビューを一つ記入してください"
+      li.list-none.max-width
+        = f.submit "投稿"
+
+css:
+  .rec-edit-text-area{
+  height: 120px;
+  }
+  .list-none{
+    list-style: none;
+  }
+  .max-width{
+    width: 100%;
+  }
+  .edit-img{
+  width: 30%;
+  }
+  .recommender-edit-left{
+  width:50%;
+  display:inline-block;
+  margin: 0px 20px;
+  }
+  .recommender-edit-right{
+  width: 44%;
+  display:inline-block;
+  position: absolute;
+  margin-top: 14px;
+  }
+  .citation-url{
+    font-size: 12px;
+    line-height: 21px;
+    color: #a3a3a3;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    -webkit-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    max-width: 95%;
+    white-space: nowrap;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .no-decoration{
+  text-decoration: none;
+  }
+  .topic-img-style{
+    width: 45%;
+    display: inline-block;
+  }
+  .row-right{
+    display: inline-block;
+    width: 30%;
+    position: absolute;
+    margin-left: 12px;
+  }
+  .row-img{
+    display: inline-block;
+    width: 50%;
+  }
+  .topic-img{
+    width: 100%;
+  }
+  div.buttom{
+    width: 50%;
+    margin-top: 10px;
+    font-size: 15px;
+    padding: 12px 0px;
+    text-align: center;
+    background: #fff;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-transition: none;
+    transition: none;
+    border: 1px solid #59A2F5;
+    margin: 0 auto;
+  }
+  .buttom-div{
+    width: 100%;
+    padding: 16px;
+  }
+  h2{
+  background-color: #59A2F5;
+  color: white;
+  text-align: center;
+  }
+  h3{
+  border-bottom: 1px solid #59A2F5;
+  }
+  h4{
+  color: #59A2F5;
+  }
+  .first-description{
+    display: inline-block;
+    position: absolute;
+    width: 70%;
+    margin-left: 18px;
+
+  }
+  .img-decript{
+    position: relative;
+    width: 100%;
+  }
+  .first-view{
+    width: 100%
+  }
+  blockquote{
+    background-color: #ddd;
+    padding: 1.5em 1em 0.5em;
+    position: relative;
+    border: 3px solid #d7d7d7;
+    margin: 0 1em 1.5em;
+  }
+  blockquote:before{
+      content: "“";
+      font-size: 400%;
+      line-height: 1em;
+      font-family: "ＭＳ Ｐゴシック",sans-serif;
+      color: #999;
+      position: absolute;
+      left: 0;
+      top: 0;
+  }
+  blockquote:after{
+      content: "”";
+      font-size: 400%;
+      line-height: 0em;
+      font-family: "ＭＳ Ｐゴシック",sans-serif;
+      color: #999;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+  }

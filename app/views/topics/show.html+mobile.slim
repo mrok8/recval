@@ -1,0 +1,133 @@
+div
+  .first-view-image
+    = image_tag @topic.thumb_url ,class: "topic-top-image"
+  .title-style
+    = @topic.title
+  .description-style
+    = @topic.description
+  .category-need-style
+    i class="fa fa-folder-open-o" aria-hidden="true" style="float: right;padding: 0px 10px;"
+      = @category_name
+    i class="fa fa-hashtag" aria-hidden="true" style="float: right;"
+      = @need_name
+    / .topic-top-border
+  div[style="margin: 0px 10px;"]
+    = @topic[:text].html_safe
+
+  =render 'partial_contents/same_category_topics'
+
+css:
+  .title-h2{
+    border-bottom: 2px solid #232f3e;
+    border-left: 4px solid #232f3e;
+  }
+  h3{
+    color: #59A2F5;
+  }
+  h2{
+    border-bottom: 1px solid #59A2F5;
+    font-size: 16px;
+  }
+  .recommender-label{
+  background-color: #59A2F5;
+  color: white;
+  text-align: center;
+  padding: 4px 10px;
+  }
+  blockquote{
+    background-color: #ddd;
+    padding: 1.5em 1em 0.5em;
+    position: relative;
+    border: 3px solid #d7d7d7;
+    margin: 0 1em 1.5em;
+  }
+
+  blockquote:before{
+      content: "“";
+      font-size: 400%;
+      line-height: 1em;
+      font-family: "ＭＳ Ｐゴシック",sans-serif;
+      color: #999;
+      position: absolute;
+      left: 0;
+      top: 0;
+  }
+
+  blockquote:after{
+      content: "”";
+      font-size: 400%;
+      line-height: 0em;
+      font-family: "ＭＳ Ｐゴシック",sans-serif;
+      color: #999;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+  }
+  .topic-top-image{
+      width: 100%;
+      margin: 1px 0;
+      display: inline-block;
+    }
+  div.buttom{
+    width: 100%;
+    margin-top: 10px;
+    font-size: 15px;
+    padding: 12px 0px;
+    text-align: center;
+    position: relative;
+    display: block;
+    background: #fff;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-transition: none;
+    transition: none;
+    border: 1px solid #59A2F5;
+  }
+  img{
+    width: 100%;
+  }
+  .title-style{
+    font-size: 18px;
+    padding: 8px;
+  }
+  a{
+    text-decoration:none;
+    padding: 10px;
+  }
+  .citation-url{
+    font-size: 8px;
+    font-size: 0.8rem;
+    line-height: 21px;
+    line-height: 2.1rem;
+    color: #a3a3a3 !important;
+    font-weight: normal;
+    text-decoration-color: #a3a3a3;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    -webkit-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    max-width: 95%;
+    white-space: nowrap;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .topic-top-border{
+    border: 0.5px solid #ddd;
+  }
+  .category-need-style{
+    height: 20px;
+    border-bottom: 1px solid #ddd;
+    margin: 20px 0px;
+  }
+  .buttom-div{
+   margin-bottom: 20px;
+  }
+  .first-view-img{
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+  }
+  .description-style{
+    padding: 8px;
+    font-size: 12px;
+    color: #555;
+  }

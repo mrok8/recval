@@ -1,0 +1,20 @@
+doctype html
+html[style="font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'Lucida Grande', Meiryo, メイリオ, 'ＭＳ Ｐゴシック', sans-serif;"]
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    meta[name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"]
+    = stylesheet_link_tag "//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
+    title RecVal
+    = csrf_meta_tags
+    = stylesheet_link_tag    'sp', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'sp', 'data-turbolinks-track': 'reload'
+    = render 'partial_contents/header'
+    css:
+      a:link { color:black; text-decoration:none }
+      a:visited { color:black; text-decoration:none }
+      a:hover { color:#0000ff; text-decoration:none }
+      a:active { color:black; text-decoration:none }
+
+  body[style="margin: 0;"]
+    = yield
+    = render 'partial_contents/footer'

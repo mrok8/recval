@@ -1,0 +1,70 @@
+header
+  div.header
+    / i class="fa fa-align-justify humberger-button" aria-hidden="true"
+    /会社192.168.100.12:3000　家192.168.10.106:3000
+    =link_to "http://192.168.10.106:3000",class: "no-decorate" do
+      span.header-text RecVal
+      nav[style="float: right;width: 60%;"]
+        - if recommender_signed_in?
+          ul.login-area
+            li.login-list
+              = link_to 'ログアウト', destroy_recommender_session_path, method: :delete,class: "login-text"
+            li.login-list
+              = link_to 'プロフィール変更', edit_recommender_registration_path,class: "login-text"
+            li.login-list
+              = link_to 'ホーム', recommender_path,class: "login-text"
+            li.login-list
+              strong.login-text = current_recommender["name"]
+
+        - elsif admin_signed_in?
+          ul.login-area
+            li.admin-list
+              = link_to 'ログアウト', destroy_admin_session_path, method: :delete,class: "login-text"
+            li.admin-list
+              = link_to 'プロフィール変更', edit_admin_registration_path,class: "login-text"
+            li.admin-list
+              = link_to 'カテゴリー管理',admin_categories_path,class: "login-text"
+            li.admin-list
+              = link_to 'ニーズ管理',admin_needs_path,class: "login-text"
+            li.admin-list
+              strong = link_to current_admin["name"], admin_path,class: "login-text"
+        - else
+          ul.login-area
+            li.login-list
+              = link_to 'サインアップ', new_recommender_registration_path,class: "login-text"
+            li.login-list
+              = link_to 'ログイン', new_recommender_session_path,class: "login-text"
+
+  css:
+    .header {
+      background-color: #59A2F5;
+      background-size: cover;
+      position: relative;
+      height: 50px;
+      text-align: center;
+      width: 100%;
+    }
+    .header-text{
+      font-size: 24px;
+      color: white;
+      position: relative;
+      top: 8px;
+      border-bottom: 2px solid;
+      width: 30%;
+    }
+    .login-list{
+      width: 25%;
+      list-style-type: none;
+      float: right;
+    }
+    .login-text{
+      color: white !important;
+    }
+    .no-decorate{
+      text-decoration: none;
+    }
+    .admin-list{
+      width: 20%;
+      list-style-type: none;
+      float: right;
+    }

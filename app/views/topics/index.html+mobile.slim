@@ -1,0 +1,78 @@
+.topic-area
+    - @new_topics.each_with_index do |t,i|
+      - unless i.even?
+        = link_to topic_show_path(t.id) do
+          .card-margin
+           .list
+             = image_tag t.thumb_url ,class: "top-card"
+           .list[style="float: right"]
+             .label-style
+               .label-text = @need_name[i]
+             span.topic-title =t.title
+             div[style="display: table-cell;vertical-align: middle;text-align: center;color: #E3E3E3;width: 35.42px;"]
+               / i[class="fa fa-hand-o-left" aria-hidden="true" style="font-size: 32px;color: #59A2F5;"]
+             span.check-text この記事をチェック
+        .top-card-border
+      - else
+        = link_to topic_show_path(t.id) do
+          .card-margin
+            .list
+              .label-style
+                .label-text = @need_name[i]
+              span.topic-title =t.title
+              / div[style="text-align: right;"]
+                / i[class="fa fa-hand-o-right" aria-hidden="true" style="font-size: 32px;color: #59A2F5;"]
+              span.check-text この記事をチェック
+            .list[style="float: right"]
+              = image_tag t.thumb_url, class: "top-card"
+        .top-card-border
+    .buttom-div
+
+
+css:
+    .topic-card {
+      display: block;
+      height: 50%;
+      margin: 4px 0px 0px 4px;
+    }
+    .top-card{
+      width: 100%;
+      height: 100%;
+    }
+    .list{
+      display: inline-block;
+      width: 46%;
+      background-color: white;
+      height: 180px;
+      position: relative;
+    }
+    .check-text{
+      color: #59A2F5;
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+    }
+    .topic-title{
+      font-size: 14px;
+      color: black;
+    }
+    .label-style{
+      background-color: #59A2F5;
+      width: 100%;
+      height: 30px;
+      / position: relative;
+      / top: 30px;
+      color: white;
+      text-align: center;
+    }
+    .label-text{
+      position: relative;
+      top: 4px;
+    }
+    .card-margin{
+      margin-top: 20px;
+    }
+    .top-card-border{
+      border-bottom: 1px solid #59A2F5;
+      margin-top: 10px;
+    }

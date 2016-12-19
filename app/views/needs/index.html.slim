@@ -1,0 +1,125 @@
+.category-card
+  .img-style
+    = image_tag @need.thumb_url, class: "category-card-img"
+    .black-window
+  span.category-card-text = @need.name
+div[style="width:100%;"]
+  div[style="width: 100%;float:left;margin-left: 60px;"]
+    .topic-area
+      - @need_topics.each do |t|
+        .need-card
+          =link_to topic_show_path(t.id) do
+              .list
+                = image_tag t.thumb_url ,class: "recommend-img"
+              .recommend-list
+                .recommend-text
+                  span.recommned-title = t.title
+                      span.check-text この記事をチェック
+
+  / div[style="width: 30%;float:right;margin-right: 60px;"]
+
+css:
+  .main{
+    margin:0 10px;
+  }
+  ul{
+    width: 100%;
+    padding: 0;
+    list-style: none;
+  }
+  .topic-area-title{
+    border-bottom: 1px solid #59A2F5;
+    overflow: hidden;
+  }
+  .top-title-style{
+    display: inline-block;
+    vertical-align: middle;
+    float: left;
+    font-size: 24px;
+    font-weight: 600;
+  }
+  .top-subtitle-style{
+    padding-left: 8px;
+    top: 8px;
+    position: relative;
+    color: #59A2F5;
+    font-size: 12px;
+  }
+  .label-style{
+    background-color: #59A2F5;
+    width: 70px;
+    height: 30px;
+    position: relative;
+    top: 30px;
+    color: white;
+    text-align: center;
+  }
+  .label-text{
+    position: relative;
+    top: 4px;
+  }
+  .recommend-list{
+    display: inline-block;
+    width: 45%;
+    margin: 0 0 0 12px;
+  }
+  .recommend-text{
+    position: relative;
+    top: -30px;
+  }
+  .check-text{
+    color: #59A2F5;
+  }
+  .recommend-title{
+    display: block;
+    font-size: 14px;
+    color: black;
+  }
+  .recommend-img{
+    max-width: 140px;
+    height: 140px;
+  }
+  .list{
+    display: inline-block;
+    width: 30%;
+    margin: 0 0 15px 12px;
+    background-color: white;
+    height: 120px;
+  }
+  .category-card{
+    display: inline-block;
+    width: 100%;
+    position: relative;
+  }
+  .category-card-img{
+    width: 100%;
+  }
+  .category-card-text{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 30%;
+    text-align: center;
+    z-index: 2;
+    color: white;
+  }
+  .black-window{
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    z-index: 2;
+    opacity: 0.3;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+  }
+  .img-style{
+    position: relative;
+    width: 30%;
+  }
+  .need-card{
+    display: inline-block;
+    width: 47%;
+    border: 1px solid #ddd;
+    margin: 10px;
+  }
