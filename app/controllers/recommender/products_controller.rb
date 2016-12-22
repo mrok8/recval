@@ -16,12 +16,11 @@ class Recommender::ProductsController < ApplicationController
 
   def create
     product = Product.new
+    product.topic_id = params[:product][:topic_id]
     product.title = params[:product][:title]
     product.image_url = params[:product][:image_url]
     product.text = params[:product][:text]
     product.recommender_id = current_recommender.id
-    product.need_id = params[:product][:need_id]
-    product.category_id = params[:product][:category_id]
     product.status = 0
     product.site_url = params[:product][:site_url]
     product.information = params[:product][:information]
