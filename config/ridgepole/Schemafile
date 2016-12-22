@@ -1,7 +1,6 @@
 create_table "topics", force: true do |t|
   t.string   "title"
   t.text     "description"
-  t.text     "text"
   t.integer  "category_id"
   t.integer  "need_id"
   t.boolean  "published_flg"
@@ -116,15 +115,13 @@ create_table "needs", force: true do |t|
 end
 
 create_table "products", force: true do |t|
-  t.integer  "need_id"
-  t.integer  "category_id"
+  t.integer  "topic_id"
   t.integer  "recommender_id"
   t.string   "title"
-  t.text   "image_url"
+  t.text     "image_url"
   t.string   "site_url"
   t.text     "text"
   t.text     "information"
-  t.text     "quotation"
   t.string   "recommend_point_1"
   t.string   "recommend_point_2"
   t.string   "recommend_point_3"

@@ -1,8 +1,6 @@
 header
   div.header
-    / i class="fa fa-align-justify humberger-button" aria-hidden="true"
-    /会社192.168.100.12:3000　家192.168.10.106:3000
-    =link_to "http://192.168.10.106:3000",class: "no-decorate" do
+    =link_to "http://recval.com",class: "no-decorate" do
       span.header-text RecVal
       nav[style="float: right;width: 60%;"]
         - if recommender_signed_in?
@@ -28,12 +26,6 @@ header
               = link_to 'ニーズ管理',admin_needs_path,class: "login-text"
             li.admin-list
               strong = link_to current_admin["name"], admin_path,class: "login-text"
-        - else
-          ul.login-area
-            li.login-list
-              = link_to 'サインアップ', new_recommender_registration_path,class: "login-text"
-            li.login-list
-              = link_to 'ログイン', new_recommender_session_path,class: "login-text"
 
   css:
     .header {

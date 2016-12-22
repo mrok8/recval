@@ -3,18 +3,18 @@ div[style="margin-left: 120px;width: 100%;"]
     h2 オススメ商品一覧
     =button_to 'オススメ商品作成', {action: "new"},{method: "get"}
     div[style="margin: 10px"]
-      - @products.each_with_index do |p,i|
+      - @products.each do |p|
         = link_to recommender_products_edit_path(p.id) do
           .category-card
             .img-style
               = image_tag p.image_url, class: "category-card-img"
             .container
-               p = p.title
+              p = p.title
             i class="fa fa-folder-open-o" aria-hidden="true"
-              = @category_name[i]
+              = p.topic.category.name
             br
             i class="fa fa-hashtag" aria-hidden="true"
-              = @need_name[i]
+              = p.topic.need.name
 
   / div.side-div
 

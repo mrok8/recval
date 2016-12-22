@@ -1,2 +1,0 @@
-class TopicElement < ApplicationRecord
-end

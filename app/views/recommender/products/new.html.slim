@@ -1,11 +1,8 @@
 div[style="margin: 0px 60px"]
   = form_for(@product,url: recommender_products_create_path,method: "post") do |f|
     li.form-list.inline-block-2.list-none.max-width
-      span ニーズ
-      = f.collection_select :need_id, Need.all, :id, :name, :prompt => "選択してください"
-    li.form-list.inline-block-2.list-none.max-width
-      span カテゴリー
-      = f.collection_select :category_id, Category.all, :id, :name, :prompt => "選択してください"
+      span タイトル
+      = f.collection_select :topic_id, Topic.where(published_flg: true), :id, :title, :prompt => "選択してください"
     li.list-none.max-width
       = f.text_field :title,class: "max-width" ,placeholder: "商品名を記入してください"
     li.list-none.max-width
@@ -22,8 +19,6 @@ div[style="margin: 0px 60px"]
       = f.text_area :text,class: "max-width" ,placeholder: "体験談などを記入してください"
     li.list-none.max-width
       = f.text_area :information,class: "max-width" ,placeholder: "基本情報を記入してください"
-    li.list-none.max-width
-      = f.text_area :quotation,class: "max-width" ,placeholder: "レビューを一つ記入してください"
     li.list-none.max-width
     = f.submit "投稿"
 

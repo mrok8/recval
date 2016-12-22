@@ -7,12 +7,14 @@ div
     = @topic.description
   .category-need-style
     i class="fa fa-folder-open-o" aria-hidden="true" style="float: right;padding: 0px 10px;"
-      = @category_name
+      = @topic.category.name
     i class="fa fa-hashtag" aria-hidden="true" style="float: right;"
-      = @need_name
+      = @topic.need.name
     / .topic-top-border
-  div[style="margin: 0px 10px;"]
-    = @topic[:text].html_safe
+  / div[style="margin: 0px 10px;"]
+  /   = @topic[:text].html_safe
+  - @products.each do |product|
+    = render partial: 'partial_contents/product_item', locals: {product: product}
 
   =render 'partial_contents/same_category_topics'
 
@@ -23,16 +25,17 @@ css:
   }
   h3{
     color: #59A2F5;
+    font-size: 16px;
   }
   h2{
     border-bottom: 1px solid #59A2F5;
-    font-size: 16px;
+    font-size: 17px;
   }
   .recommender-label{
-  background-color: #59A2F5;
-  color: white;
-  text-align: center;
-  padding: 4px 10px;
+    background-color: #59A2F5;
+    color: white;
+    text-align: center;
+    padding: 4px 10px;
   }
   blockquote{
     background-color: #ddd;
@@ -84,7 +87,7 @@ css:
     border: 1px solid #59A2F5;
   }
   img{
-    width: 100%;
+    width: 98%;
   }
   .title-style{
     font-size: 18px;

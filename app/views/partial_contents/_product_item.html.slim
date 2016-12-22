@@ -1,0 +1,24 @@
+h2 =product.title
+span.recommender-label = product.recommender.name + "さんのオススメ"
+div[style='width: 100%']
+  .row-img
+    =image_tag product.image_url,class: 'topic-img'
+  .row-right
+    h3 = product.recommender.name + "さんのオススメポイント"
+    ul
+      li = product.recommend_point_1
+      li = product.recommend_point_2
+      li = product.recommend_point_3
+h3 = product.recommender.name + "さんの総評・体験談"
+P  =product.text
+.buttom-div
+  .buttom
+    =link_to "商品ページへ", product.site_url, style: "color: #59A2F5;",target: "_blank"
+
+blockquote
+  = product.information.gsub(/\r\n|\r|\n/, '<br />').html_safe
+  br
+  = link_to product.site_url,target: "_blank", class: "no-decoration" do
+    cite.citation-url
+      span 出典：
+      span =product.site_url

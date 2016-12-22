@@ -14,9 +14,7 @@ div[style="margin-bottom: 40px;"]
           span カテゴリー
           = f.collection_select :category_id, Category.all, :id, :name, :prompt => "選択してください"
       li.form-list
-        = f.text_area :description, class: "description-style",placeholder: "記事の概要を記入してください"
-      li.form-list
-        = f.text_area :text, class: "text-style",placeholder: "記事の内容を入力してください"
+        = f.text_area :description, class: "description-style",placeholder: "コンテンツの概要を記入してください"
       li.form-list
         = f.submit "編集完了" , class: "submit-button"
 

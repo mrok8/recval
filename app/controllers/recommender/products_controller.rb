@@ -1,22 +1,13 @@
 class Recommender::ProductsController < ApplicationController
   before_action :sign_in_required_recommender, only: [:index]
   def index
-    @product =Product.new
+    @product = Product.new
     @products = Product.where(recommender_id: current_recommender.id)
-    @need_name = []
-    @category_name = []
-    @topic_id = []
-    needs = Need.all
-    categories = Category.all
-    @products.each do |p|
-      @topic_id << Topic.where(need_id: p.need_id,category_id: p.category_id)
-      @need_name << needs[p.need_id-1].name
-      @category_name << categories[p.category_id-1].name
-    end
   end
 
   def new
     @product = Product.new
+    @topic_titles = Topic.where(published_flg: true)
   end
 
   def edit
@@ -34,7 +25,6 @@ class Recommender::ProductsController < ApplicationController
     product.status = 0
     product.site_url = params[:product][:site_url]
     product.information = params[:product][:information]
-    product.quotation = params[:product][:quotation]
     product.recommend_point_1 = params[:product][:recommend_point_1]
     product.recommend_point_2 = params[:product][:recommend_point_2]
     product.recommend_point_3 = params[:product][:recommend_point_3]
@@ -51,7 +41,6 @@ class Recommender::ProductsController < ApplicationController
     product.status = 2
     product.site_url = params[:product][:site_url]
     product.information = params[:product][:information]
-    product.quotation = params[:product][:quotation]
     product.recommend_point_1 = params[:product][:recommend_point_1]
     product.recommend_point_2 = params[:product][:recommend_point_2]
     product.recommend_point_3 = params[:product][:recommend_point_3]

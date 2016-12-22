@@ -2,7 +2,7 @@ div[style="margin-left: 120px;position: relative;"]
   .admin-index-left
     h2 作成記事一覧
     =button_to '記事作成', {action: "new"},{method: "get"}
-    - @topics.each_with_index do|t,i|
+    - @topics.each do|t|
       =t.id
       ul.list-none
         li.writer-topic-list
@@ -10,17 +10,17 @@ div[style="margin-left: 120px;position: relative;"]
           .card-right
             .row-three-item = t.title
             i class="fa fa-folder-open-o" aria-hidden="true"
-              = @category_name[i]
+              = t.category.name
             i class="fa fa-hashtag" aria-hidden="true"
-              = @need_name[i]
+              = t.need.name
           .row-three-item = button_to "編集" ,{action: "edit",id: t.id},{method: "get"}
 
   .admin-index-right
     strong = @wait_products.count.to_s + "件の承認待ちがあります。"
-    - @wait_topics.each do |p|
+    - @wait_products.each do |p|
       p
       span 記事id：
-      =p
+      =p.id
 
 css:
   .admin-index-left{

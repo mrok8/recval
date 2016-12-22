@@ -8,22 +8,22 @@
       - unless i.even?
         = link_to topic_show_path(t.id) do
           .card-margin
-           .list
-             = image_tag t.thumb_url ,class: "top-card"
-           .list[style="float: right"]
-             .label-style
-               .label-text = @need_name
-             h4.topic-title =t.title
-             div[style="display: table-cell;vertical-align: middle;text-align: center;color: #E3E3E3;width: 35.42px;"]
+            .list
+              = image_tag t.thumb_url ,class: "top-card"
+            .list[style="float: right"]
+              .label-style
+                .label-text = t.need.name
+              h4.topic-title =t.title
+              div[style="display: table-cell;vertical-align: middle;text-align: center;color: #E3E3E3;width: 35.42px;"]
                / i[class="fa fa-hand-o-left" aria-hidden="true" style="font-size: 32px;color: #59A2F5;"]
-             span.check-text このオススメをチェック
+              span.check-text このオススメをチェック
         .top-card-border
       - else
         = link_to topic_show_path(t.id) do
           .card-margin
             .list
               .label-style
-                .label-text = @need_name
+                .label-text = t.need.name
               h4.topic-title =t.title
               / div[style="text-align: right;"]
                 / i[class="fa fa-hand-o-right" aria-hidden="true" style="font-size: 32px;color: #59A2F5;"]

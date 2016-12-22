@@ -9,8 +9,8 @@ div[style="width:100%;"]
         = image_tag @topic.thumb_url ,class: "top-img"
         span.first-description = @topic.description
 
-    .topic-main
-      = @topic[:text].html_safe
+    - @products.each do |product|
+      = render partial: 'partial_contents/product_item', locals: {product: product}
     = render 'partial_contents/same_category_topics'
 
   div[style="width: 30%;float:right;margin-right: 60px;"]

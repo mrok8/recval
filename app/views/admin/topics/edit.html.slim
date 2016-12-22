@@ -16,19 +16,10 @@ div[style="margin-bottom: 40px;position: relative;"]
             = f.collection_select :category_id, Category.all, :id, :name, :prompt => "選択してください"
         li.form-list
           = f.text_area :description, class: "description-style",placeholder: "記事の概要を記入してください"
-        div[style="width: 100%;"]
-          li[style="display: inline-block;width: 100%;"]
-            = f.text_area :text, class: "text-style",placeholder: "記事の内容を入力してください",id: "edit-text"
         li.form-list
         = f.submit "編集完了" , class: "submit-button"
 
   div[style="display: inline-block;width: 50%;top: 0px;position: absolute;"]
-    div
-      .inline-block 見出しL
-      .inline-block 見出しM
-      .inline-block 画像
-      .inline-block ボタン
-      .inline-block 引用
     div
       - @products.each do |product|
         = form_for(product,url: admin_add_image_path(@topic.id),method: "post") do |f|
@@ -47,7 +38,6 @@ div[style="margin-bottom: 40px;position: relative;"]
           = f.text_field :recommend_point_2
           = f.text_field :recommend_point_3
           = f.text_area :information
-          = f.text_area :quotation
           = f.submit "追加"
 
 css:

@@ -3,23 +3,24 @@
     div[style="display: inline-block;width: 46%;margin: 0px 20px;"]
       =image_tag "http://media.gettyimages.com/photos/young-couple-leaning-at-kitchen-counter-and-looking-at-documents-picture-id544489363?k=6&m=544489363&s=170667a&w=0&h=kuR6FoQYxjuThUEBQ7O4UhncKX-gWkWFOz7slDZxeJM=",style: "width: 100%;"
     div[style="display: inline-block;width: 47%;margin: 0px 20px;"]
-      h1.top-img-text RecValとは・・・</br>
-      span「recommend value」から名付けられました。普段友達などに何か商品のおすすめを聞かれて教えることがありますよね？そのおすすめに価値をつけませんか？このサイトはそんな皆様のおすすめに価値をつけるために作られました。
+      h1.top-img-text RecValって・・・
+      br
+      span　何気ない日常の知り合いの"おすすめ"は、ネットで調べるより、信頼度がありますよね？そのような”おすすめ”が集まるプラットフォームです。
 
   .topic-area-title
     span.top-title-style おすすめ特集一覧
 
   section.topic-area
     ul[style="list-style: none;"]
-      - @new_topics.each_with_index do |t,i|
+      - @new_topics.each do |t|
         = link_to topic_show_path(t.id) do
           li.list
             = image_tag t.thumb_url ,class: "top-card"
             span.card-name = t.title
             i class="fa fa-folder-open-o" aria-hidden="true"
-              = @category_name[i]
+              = t.category.name
             i class="fa fa-hashtag" aria-hidden="true"
-              = @need_name[i]
+              = t.need.name
 
       / li.list
       /   = image_tag 'http://scontent.cdninstagram.com/t51.2885-15/e35/s320x320/15056750_1738302516494801_9095615996957294592_n.jpg', class: "top-card"
@@ -41,7 +42,7 @@
   .topic-area-title
     span.top-title-style カテゴリー一覧
 
-  div[style="padding-left: 70px;"]
+  .top-category-div
     - @recommend_categories.each do |c|
       = link_to category_path(c.id) do
         .category-card
@@ -169,4 +170,8 @@ css:
   }
   .img-style{
     position:relative;
+  }
+  .top-category-div{
+    margin-left: 70px;
+    margin-bottom: 40px;
   }
