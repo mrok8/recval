@@ -1,4 +1,5 @@
 class Admin::TopicsController < ApplicationController
+   skip_before_filter :verify_authenticity_token
    before_action :sign_in_required_admin, only: [:index,:new,:edit,:new]
    require 'date'
 
