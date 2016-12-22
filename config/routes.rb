@@ -9,6 +9,15 @@ Rails.application.routes.draw do
     passwords:     'recommender/passwords',
     registrations: 'recommender/registrations'
   }
+
+  devise_scope :admin do
+    get '/admin/sign_out' => 'devise/sessions#destroy'
+  end
+
+  devise_scope :recommender do
+    get '/recommender/sign_out' => 'devise/sessions#destroy'
+  end
+
   root 'tops#index'
 
   get  'topics'              => 'topics#index'
