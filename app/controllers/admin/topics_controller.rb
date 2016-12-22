@@ -13,7 +13,7 @@ class Admin::TopicsController < ApplicationController
   end
 
   def create
-    topic = Topic.new(title: params[:topic][:title], text: params[:topic][:text],thumb_url: params[:topic][:thumb_url],category_id: params[:topic][:category_id],need_id: params[:topic][:need_id],description: params[:topic][:description])
+    topic = Topic.new(title: params[:topic][:title],thumb_url: params[:topic][:thumb_url],category_id: params[:topic][:category_id],need_id: params[:topic][:need_id],description: params[:topic][:description])
     topic[:created_at] =  DateTime.now
     topic[:updated_at] =  DateTime.now
     topic[:published_flg] = true
