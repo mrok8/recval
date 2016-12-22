@@ -119,7 +119,7 @@ create_table "products", force: true do |t|
   t.integer  "recommender_id"
   t.string   "title"
   t.text     "image_url"
-  t.string   "site_url"
+  t.text   "site_url"
   t.text     "text"
   t.text     "information"
   t.string   "recommend_point_1"
