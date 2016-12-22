@@ -1,10 +1,10 @@
 .category-card
   .img-style
-    = image_tag @category.thumb_url, class: "category-card-img"
+    = image_tag @parent_category.thumb_url, class: "category-card-img"
     .black-window
-  span.category-card-text = @category.name
+  span.category-card-text = @parent_category.name
 div[style="width:100%;"]
-  div[style="width: 100%;float:left;margin-left: 60px;"]
+  div[style="width: 92%;float:left;margin-left: 60px;"]
     .topic-area
       - @category_topics.each do |t|
         .need-card
