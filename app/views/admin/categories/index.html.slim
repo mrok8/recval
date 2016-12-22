@@ -8,7 +8,7 @@ div[style="margin-left: 120px;"]
       = f.text_field :thumb_url
       = link_to "フリー画像","http://gahag.net/",:target => "_blank"
       = f.label :parent_id
-      = f.collection_select :parent_id, Category.where(parent_id: nil), :id, :name, :prompt => "選択してください"
+      = f.collection_select :parent_id, Category.all, :id, :name, :prompt => "選択してください"
       = f.submit "追加"
 
   div[style="margin: 10px"]
