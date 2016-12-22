@@ -83,4 +83,18 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  #devise first setting
+  # config.action_mailer.default_url_options = { host: 'recval.com', port: 80 }
+  # mail setting
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      :address => "smtp.gmail.com",
+      :port => 587,
+      :user_name => "recommend.value@gmail.com",
+      :password => "recval119",
+      :authentication => :plain,
+      :enable_starttls_auto => true
+  }
 end
