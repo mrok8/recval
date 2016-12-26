@@ -8,7 +8,7 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
     @products = Product.where(topic_id: @topic.id,status: 1).order("created_at ASC")
     @recommenders = Recommender.where()
-    @same_category_topics =Topic.where(category_id: @topic.category_id).limit(4)
+    @same_category_topics =Topic.where(category_id: @topic.category_id).where.not(id: @topic.id).limit(4)
     add_breadcrumb "#{@topic.need.name}","/needs/#{@topic.need_id}"
     add_breadcrumb "#{@topic.category.name}","/categories/#{@topic.category_id}"
     add_breadcrumb @topic.title
