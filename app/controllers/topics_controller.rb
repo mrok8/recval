@@ -6,7 +6,7 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
-    @products = Product.where(topic_id: @topic.id,status: 1)
+    @products = Product.where(topic_id: @topic.id,status: 1).order("created_at ASC")
     @recommenders = Recommender.where()
     @same_category_topics =Topic.where(category_id: @topic.category_id).limit(4)
     add_breadcrumb "#{@topic.need.name}","/needs/#{@topic.need_id}"

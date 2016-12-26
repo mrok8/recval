@@ -1,24 +1,41 @@
 .category-card
-  .img-style
-    = image_tag @parent_category.thumb_url, class: "category-card-img"
-    .black-window
-  span.category-card-text = @parent_category.name
+  .category-left
+    .img-style
+      = image_tag @parent_category.thumb_url, class: "category-card-img"
+      .black-window
+    span.category-card-text = @parent_category.name
+  .category-right
+    - @parent_categories.each do |pc|
+      i class="fa fa-folder-open-o category-icon" aria-hidden="true"
+        =pc.name
 div[style="width:100%;"]
   div[style="width: 92%;float:left;margin-left: 60px;"]
     .topic-area
       - @category_topics.each do |t|
         .need-card
           =link_to topic_show_path(t.id) do
-              .list
-                = image_tag t.thumb_url ,class: "recommend-img"
-              .recommend-list
-                .recommend-text
-                  span.recommned-title = t.title
-                      span.check-text この記事をチェック
+            .list
+              = image_tag t.thumb_url ,class: "recommend-img"
+            .recommend-list
+              .recommend-text
+                span.recommned-title = t.title
+                  span.check-text この記事をチェック
 
   / div[style="width: 30%;float:right;margin-right: 60px;"]
 
 css:
+  .category-icon{
+    border: 1px solid;
+    padding: 4px;
+  }
+  .category-right {
+    width: 70%;
+    display: inline-block;
+  }
+  .category-left{
+    width: 30%;
+    display: inline-block;
+  }
   .main{
     margin:0 10px;
   }
@@ -115,7 +132,6 @@ css:
   }
   .img-style{
     position: relative;
-    width: 30%;
   }
   .need-card{
     display: inline-block;
