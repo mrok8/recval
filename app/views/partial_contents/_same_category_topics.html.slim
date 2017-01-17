@@ -13,7 +13,7 @@
             .list[style="float: right"]
               .label-style
                 .label-text = t.need.name
-              h4.topic-title =t.title
+              .topic-title = t.title
               div[style="display: table-cell;vertical-align: middle;text-align: center;color: #E3E3E3;width: 35.42px;"]
                / i[class="fa fa-hand-o-left" aria-hidden="true" style="font-size: 32px;color: #59A2F5;"]
               span.check-text このオススメをチェック
@@ -24,7 +24,7 @@
             .list
               .label-style
                 .label-text = t.need.name
-              h4.topic-title =t.title
+              .topic-title = t.title
               / div[style="text-align: right;"]
                 / i[class="fa fa-hand-o-right" aria-hidden="true" style="font-size: 32px;color: #59A2F5;"]
               span.check-text このオススメをチェック
@@ -76,6 +76,7 @@ css:
   .topic-title{
     font-size: 14px;
     color: black;
+    margin-top: 8px;
   }
   .label-style{
     background-color: #59A2F5;

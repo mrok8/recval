@@ -58,15 +58,15 @@ section
         span.top-subtitle-style 人気記事
 
       .topic-area
-        ul
-          - @new_topics.each do |t|
-            li.list
-              .label-style
-                .label-text = t.need.name
-              = image_tag t.thumb_url ,class: "top-card"
-            li.recommend-list
-              .recommend-text
-                span.popular-title = t.title
+        - @new_topics.each do |t|
+          = link_to topic_show_path(t.id) do
+            .card-margin
+              .list
+                = image_tag t.thumb_url ,class: "top-card"
+              .list[style="float: right"]
+                .label-style
+                  .label-text = t.need.name
+                span.topic-title = t.title
                 span.check-text この記事をチェック
 
   css:
